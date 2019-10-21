@@ -57,8 +57,9 @@ def parse_filter_yaml_def(filter_yaml, creds=None):
                 continue
 
             try:
-                if device["primary_ip"].get("address"):
-                    dev = device["primary_ip"].get("address").split("/")[0]
+                if device.get("primary_ip") and \
+                        device["primary_ip"].get("address"):
+                    dev = device["primary_ip"]["address"].split("/")[0]
                 else:
                     dev = device["name"]
                 devices[device["name"]] = DeviceImporter(
