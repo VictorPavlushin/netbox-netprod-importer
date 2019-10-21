@@ -116,8 +116,7 @@ def parse_args():
                 args.filter, args.creds
             )
         else:
-            logger.error("Device file or filter file required")
-            sys.exit(3)
+            arg_parser.error("Device file or filter file required")
 
         args.func(parsed_args=args)
     else:
