@@ -72,7 +72,7 @@ def parse_filter_yaml_def(filter_yaml, creds=None):
                     ]["napalm_args"],
                     creds=creds,
                     discovery_protocol=yml["discovery_protocol"].get(
-                        platforms[device["platform"]["id"]]
+                        platforms[device["platform"]["id"]]["napalm_driver"]
                     )
                 )
             except Exception as e:
